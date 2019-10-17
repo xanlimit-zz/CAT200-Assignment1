@@ -1,23 +1,27 @@
-package sample;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+public class main {
+    public static void main(String[] args){
+        ArrayList<String> list1=new ArrayList<>();
+        File file1= new File("student.txt");
+        Scanner scan = null;
+        int time=0;
+        try{
+            scan= new Scanner(file1);
+            while(scan.hasNext()){
+                if(scan.hasNextInt())
+                    list1.add(scan.);
+                else
+                    scan.next();
+            }
+        }
+        catch(FileNotFoundException f){
+            System.out.println("student.txt is not found.");
+        }
 
-public class Main extends Application {
 
-    @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
-        primaryStage.show();
+
+
     }
-
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
